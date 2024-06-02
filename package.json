@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AlexRCamargo/cloudnativeapp.git)"
+    "url": "git+https://github.com/AlexRCamargo/cloudnativeapp.git).git"
   },
   "author": "",
   "license": "ISC",
@@ -16,4 +16,4 @@
     "url": "https://github.com/AlexRCamargo/cloudnativeapp/issues)"
   },
   "homepage": "https://github.com/AlexRCamargo/cloudnativeapp#readme"
-  }
+}
