@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/AlexRCamargo/cloudnativeapp/issues)"
   },
-  "homepage": "https://github.com/AlexRCamargo/cloudnativeapp#readme"
+  "homepage": "https://github.com/AlexRCamargo/cloudnativeapp#readme",
+  "devDependencies": {
+    "eslint": "^9.4.0"
+  }
 }
