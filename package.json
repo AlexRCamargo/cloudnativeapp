@@ -12,8 +12,11 @@
   },
   "author": "",
   "license": "ISC",
-  "bugs":{
+  "bugs": {
     "url": "https://github.com/AlexRCamargo/cloudnativeapp/issues"
   },
-    "homepage": "https://github.com/AlexRCamargo/cloudnativeapp#readme"
+  "homepage": "https://github.com/AlexRCamargo/cloudnativeapp#readme",
+  "devDependencies": {
+    "json-server": "^1.0.0-beta.1"
+  }
 }
