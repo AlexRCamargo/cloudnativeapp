@@ -34,16 +34,32 @@ export default function Products() {
         setproducts(productsList);
     };
 
+const createproduct = async () => {
+    alert('createProduct()');
+};
+
+const editeproduct = async (id) => {
+    alert('editeProduct(): $(id)');
+};
+
+const cdeleteproduct = async (id) => {
+    alert('deleteProduct(): $(id)');
+};
+
     useEffext(() => {
         getProducts ()
     }, []);
 
     return (
         <List>
-            <PageHeader pageLabel={pageLabel}></PageHeader>
+            <PageHeader pageLabel={pageLabel}>
+                <PageActions createProduct={createProduct} />
+            </PageHeader>
             <PageContent>
                 <PageContentLabels labels={itemsLabels} />
-                <PageContentItems products={products} />
+                <PageContentItems 
+                    products={products} />
+                    editProduct={editProduct} /;
             </PageContent>
         </List>
     );
@@ -60,8 +76,41 @@ function pageContentitems({ products}) {
                     <TableCell>{product.category}</TableCell>
                     <TableCell>{product.count}</TableCell>
                     <TableCell>{product.rating}</TableCell>
+                    <PageContentActions
+                        id={product.id}
+                        editProduct={editProduct}/>
                 </TableRow>
             ))}
         </TableBody>
+    );
+}
+
+function PageActions({ createProduct }) {
+    return (
+        <>
+        <Button
+        color="primary"
+        variant="contained"
+        onClick={ () => createProduct()}
+        >
+            Create
+        </Button>
+        </>
+    );
+}
+
+function PageContentActions({ id, editProduct, deleteProduct }) {
+    return (
+        <>
+            <TableCell>
+                <Button
+                     size="small"
+                     variant="contained"
+                     onClick={() => editProduct(id)}
+                >
+                    Edit
+                </Button>
+            </TableCell>
+        </>
     );
 }
