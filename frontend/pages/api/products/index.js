@@ -23,18 +23,18 @@ const itemsLabels = [
     'Actions',
 ];
 
-const productsList = [
-    { name: 'P1', price: 1, category: 'C1', count: 1, rating: 1, id: 1 },
-    { name: 'P2', price: 2, category: 'C2', count: 2, rating: 2, id: 2 },
-]
-
 export default function Products() {
     const [products, setproducts] = useState([]);
 
     const router = useRouter();
 
     const getproducts = async () =>{
-        setproducts(productsList);
+        try {
+            const jsonData = await getData('products');
+            setproducts(jsonData);
+        } catch (error) {
+            console.error(error.message);
+        }
     };
 
 const createproduct = async () => {
@@ -50,7 +50,12 @@ const editProduct = async (id) => {
 };
 
 const deleteproduct = async (id) => {
-    alert('deleteProduct(): $(id)');
+    try {     
+        await deleteData('products', id);   
+        setproducts(products.filter((product) => product.id !== id));           
+    }   catch (error) {
+        console.error(error.message);
+    }
 };
 
 const createProduct = async () => {
