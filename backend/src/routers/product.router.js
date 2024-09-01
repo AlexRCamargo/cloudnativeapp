@@ -5,4 +5,6 @@ require('../controllers/product.controller');
 
 router.get('/', productController.get);
 
+router.post('/', productController.insert);
+
 module.exports = router;
