@@ -11,7 +11,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.19.2",
-    "sequelize": "^6.37.3"
+    "sequelize": "^6.37.3",
+    "winston": "^3.14.2"
   },
   "devDependencies": {
     "jest": "^29.7.0",

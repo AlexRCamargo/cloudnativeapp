@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const server - 'http://${process.env.HOST}:${process.env.PORT}';
+const server = 'http://${process.env.HOST}:${process.env.PORT}';
 
 axios.defaults.baseURL = server;
 axios.defaults.headers.post['Content-Type'] = 'application/json';
