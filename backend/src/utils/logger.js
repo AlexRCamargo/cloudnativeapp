@@ -1,6 +1,6 @@
 'use strict';
 
-const { createLogger, config, transpors } = require('winston');
+const { createLogger, config, transports, format } = require('winston');
 
 const transportConsole = new transports.Console({
     handleExceptions: true,
@@ -11,12 +11,25 @@ const transportFile = new transports.File({
     handleExceptions: true,
 });
 
+const formatter = format.combine(
+    format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
+    format.splat(),
+    format.printf((info) => {
+        const { timestamp, level, message, ...meta } = info;
+
+        return '${timestamp} [${level}]: ${message} ${
+            Object.keys (meta).length ? JSON.stringify(meta, null, 2) :''
+        };
+    })
+);
+
 class Logger {
     constructor() {
         this.logger = createLogger({
             levels: config.syslog.levels,
-            levl: 'info',
+            level: 'info',
             exitOnError: false,
+            format: formatter;
         });
         this.logger.add(transportConsole);
         this.logger.add(transportFile);
